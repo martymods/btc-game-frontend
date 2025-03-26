@@ -3,7 +3,9 @@ import io from 'socket.io-client';
 import Game from './components/Game';
 import Leaderboard from './components/Leaderboard';
 
-const socket = io('https://btc-game-backend.onrender.com');
+const socket = io('https://btc-game-backend.onrender.com', {
+  transports: ['polling'], // Only polling (no WebSockets)
+});
 
 function App() {
   const [btcPrice, setBtcPrice] = useState(null);
